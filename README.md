@@ -39,13 +39,13 @@ Run docker compose
 ## Factory Related APIs
 #### Get all factory
 
-```http
+```bash
   GET /api/factory
 ```
 
 #### Post factory
 
-```http
+```bash
   POST /api/factory/create
 ```
 
@@ -55,7 +55,7 @@ Run docker compose
 
 #### Update factory
 
-```http
+```bash
   PUT /api/factory/update
 ```
 
@@ -67,7 +67,7 @@ Run docker compose
 
 #### Post product
 
-```http
+```bash
   POST /api/product/create/{factoryID}
 ```
 
@@ -78,11 +78,11 @@ Run docker compose
 
 #### Get Product By Factory Id
 
-```http
+```bash
   GET /api/product/factory/{factoryID}
 ```
 
 ## Feedback
 
-If you have any feedback, please reach out to me at nirajmuttur@gmail.com
+If you have any feedback, please reach out to me at nirajmuttur2@outlook.com
 

@@ -36,6 +36,7 @@ services:
     environment:
       - spring.profiles.active=docker
     depends_on:
+      - config-server-service
       - serviceDiscovery
 
  serviceDiscovery:
@@ -56,6 +57,7 @@ services:
     environment:
       - spring.profiles.active=docker
     depends_on:
+      - config-server-service
       - mysql-factoryService
       - serviceDiscovery
 
@@ -69,7 +71,20 @@ services:
     environment:
       - spring.profiles.active=docker
     depends_on:
+      - config-server-service
       - mysql-productService
+      - serviceDiscovery
+
+ config-server-service:
+    image: config-server-service
+    container_name: config-server-service
+    networks:
+      - microservice
+    ports:
+      - "8003:8003"
+    environment:
+      - spring.profiles.active=docker
+    depends_on:
       - serviceDiscovery
  
 
