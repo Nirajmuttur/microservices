@@ -12,6 +12,7 @@ This is a simple microservices project .
 - Product Services
 - Service Discovery
 - API Gateway Service
+- Config Server Service
 
 
 ## Run Locally
