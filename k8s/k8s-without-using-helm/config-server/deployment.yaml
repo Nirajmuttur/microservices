@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server-service
+spec:
+  selector:
+    matchLabels:
+      app: config-server-service
+  template:
+    metadata:
+      labels:
+        app: config-server-service
+    spec:
+      containers:
+      - name: config-server-service
+        image: shadow2407/config-server-service
+        ports:
+        - containerPort: 8003
+        env:
+          - name: spring.profiles.active
+            value: docker

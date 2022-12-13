@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: factory
+spec:
+  selector:
+    matchLabels:
+      app: factory
+  template:
+    metadata:
+      labels:
+        app: factory
+    spec:
+      containers:
+      - name: factory
+        image: shadow2407/factory-service
+        ports:
+        - containerPort: 8001
+        env:
+          - name: spring.profiles.active
+            value: docker

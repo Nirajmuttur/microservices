@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-productservice
+spec:
+  selector:
+    matchLabels:
+      app: mysql-productservice
+  template:
+    metadata:
+      labels:
+        app: mysql-productservice
+    spec:
+      containers:
+      - name: mysql-productservice
+        image: mysql:8
+        ports:
+        - containerPort: 3306
+        envFrom:
+          - secretRef:
+              name: mysql2-secret
+        volumeMounts:
+          - mountPath: /var/lib/mysql
+            name: mysql2-persistent-storage
+      volumes:
+      - name: mysql2-persistent-storage
+        persistentVolumeClaim:
+          claimName:  mysql2-pvc
+

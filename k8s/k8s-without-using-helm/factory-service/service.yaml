@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: factory-svc
+spec:
+  selector:
+    app: factory
+  ports:
+  - port: 8001
+    targetPort: 8001

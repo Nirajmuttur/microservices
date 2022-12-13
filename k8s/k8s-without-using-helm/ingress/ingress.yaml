@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: apigateway
+  labels:
+    name: apigateway
+spec:
+  rules:
+  - host: inventory.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/factory-service"
+        backend:
+          service:
+            name: factory-svc
+            port: 
+              number: 8001
+      - pathType: Prefix
+        path: "/product-service"
+        backend:
+          service:
+            name: product-service
+            port:
+              number: 8002
+          
+

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-factoryservice
+spec:
+  selector:
+    matchLabels:
+      app: mysql-factoryservice
+  template:
+    metadata:
+      labels:
+        app: mysql-factoryservice
+    spec:
+      containers:
+      - name: mysql-factoryservice
+        image: mysql:8
+        ports:
+        - containerPort: 3306
+        envFrom:
+          - secretRef:
+              name: mysql1-secret
+        volumeMounts:
+          - mountPath: /var/lib/mysql
+            name: mysql1-persistent-storage
+      volumes:
+      - name: mysql1-persistent-storage
+        persistentVolumeClaim:
+          claimName:  mysql1-pvc
+
