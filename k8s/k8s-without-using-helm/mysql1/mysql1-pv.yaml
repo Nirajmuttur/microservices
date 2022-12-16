@@ -7,6 +7,6 @@ spec:
     storage: 500Mi
   accessModes:
     - ReadWriteOnce
-  storageClassName: manual
+  storageClassName: standard
   hostPath:
-    path: "/mysql1/data"
+    path: "/data/mysql1"

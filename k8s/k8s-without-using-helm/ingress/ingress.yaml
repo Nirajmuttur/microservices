@@ -5,19 +5,20 @@ metadata:
   labels:
     name: apigateway
 spec:
+  ingressClassName: nginx
   rules:
-  - host: inventory.com
+  - host:
     http:
       paths:
       - pathType: Prefix
-        path: "/factory-service"
+        path: "/api/factory"
         backend:
           service:
             name: factory-svc
             port: 
               number: 8001
       - pathType: Prefix
-        path: "/product-service"
+        path: "/api/product"
         backend:
           service:
             name: product-service

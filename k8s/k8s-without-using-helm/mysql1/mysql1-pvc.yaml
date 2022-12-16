@@ -8,4 +8,5 @@ spec:
       storage: 500Mi
   accessModes:
     - ReadWriteOnce
-  storageClassName: manual
+  storageClassName: standard
+  volumeName: mysql1-pv
